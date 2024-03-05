@@ -1,0 +1,88 @@
+--1.
+
+friends = ['A', 'B', 'C']
+new_friend = ['D']
+print(friends.sort() + new_friend)
+
+user_profile = {
+    'age': 0,
+    'username': ' ',
+    'weapons': None,
+    'is_active': False,
+    'clan': None
+}
+
+
+print(user_profile.keys())
+user_profile['weapons'] = 'Kata'
+user_profile.update({'is_banned': False})
+user_profile['is_banned'] = True
+
+
+user2 = user_profile.copy()
+user2.update({'age': 50, 'username': 'User2'})
+print(user_profile)
+print(user2)
+
+--2.
+school = {'Bobby','Ana','Joe','Dan'}
+attendance_list = ['Bobby','Ana','Joe','Dan']
+
+counter = 0
+counter += 1
+counter += 1
+counter += 1
+counter += 1
+counter -= 1
+counter *= 2
+
+
+print("Hello {}, your balance is {}.".format("Ana", 50))
+print("Hello {0}, your balance is {1}.".format("Ana", 50))
+print("Hello {name}, your balance is {amount}.".format(name="Ana", amount=50))
+print("Hello {0}, your balance is {amount}.".format("Ana", amount=50))
+
+--3.
+python = 'I am PYHTON'
+print(python[1:4])
+print(python[1:])
+print(python[:])
+print(python[1:100])
+print(python[-1])
+print(python[-4])
+print(python[:-3])
+print(python[-3:])
+print(python[::-1])
+
+birth_year = input('What year were you born?\n')
+age = 2024 - int(birth_year)
+print(f'Your age is {age} years.')
+
+username = input('Enter your username:\t')
+password = input('Enter you password:\t')
+
+secret_password = len(password) * '*'
+print(f'Hey {username}, your password {secret_password} is {len(password)}  letters long.')
+
+new_list = ['a', 'b', 'c']
+print(new_list[1])
+print(new_list[-2])
+print(new_list[1:3])
+new_list[0] = 'z'
+print(new_list)
+
+--4.
+my_list = [1,2,3]
+bonus = my_list + [5]
+my_list[0] = 'z'
+print(my_list)
+print(bonus)
+
+basket = ["Banana", ["Apples", ["Oranges"], "Blueberries"]];
+basket.remove('Banana')
+basket.remove('Blueberries')
+basket.append('Kiwi')
+basket.insert(0, 'Apples')
+basket.count('Apples')
+basket.clear()
+print(basket)
