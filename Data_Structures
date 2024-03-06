@@ -1,0 +1,274 @@
+--1.
+
+dictionary = {
+    'a': [1, 2, 3],
+    'b': 'Hello',
+    'c': True
+}
+
+print(dictionary['a'][1])
+print(dictionary)
+print('\n')
+
+
+--2.
+
+user = {
+    'basket': [1, 2, 3],
+    'greet': 'Hello',
+    'age': 20
+}
+
+print(user.get('age', 55))
+
+user2 = dict(name='John')
+print(user2)
+
+print('basket' in user)
+print('size' in user)
+print('age' in user.keys())
+print('Hello' in user.values())
+print(user.items())
+
+user2 = user.copy()
+user.clear()
+print(user)
+print(user2)
+print(user2.pop('age'))
+print(user2.popitem())
+user2.update({'age': 55})
+print(user2)
+print('\n')
+
+
+
+--3.
+
+print(type(2 + 4))
+print(type(2 - 4))
+print(type(2 * 4))
+print(type(2 / 4))
+print(type(0))
+print("\n")
+
+print(type(20 + 1.1))
+print(type(9.9 + 1.1))
+print(9.9 + 1.1)
+print("\n")
+
+print((2 ** 3))     
+print(5 // 3)       
+print(5 % 3)       
+print("\n")
+
+print(abs(-20))
+print("\n")
+
+
+--4.
+
+li = [1, 2, 3, 4, 5]
+li2 = ['a', 'b', 'c']
+li3 = [1, 2.5, 'a', True]
+amazon_cart = ['аa', 'bb']
+print(amazon_cart[0])
+print('\n')
+
+
+amazon_cart = ['aa', 'bb', 'cc', 'dd']
+print(amazon_cart)
+print(amazon_cart[0:2])
+print(amazon_cart[0::2])
+print(amazon_cart[::-1])
+
+amazon_cart[0] = 'laptop'
+print(amazon_cart)
+
+new_cart = amazon_cart[:]
+new_cart[0] = 'gum'
+print(new_cart)
+print(amazon_cart)
+
+new_cart1 = amazon_cart
+new_cart1[0] = 'gum'
+print(new_cart1)
+print(amazon_cart)
+print('\n')
+
+
+--5.
+
+matrix = [
+    [1, 0, 1],
+    [0, 1, 0],
+    [1, 0, 1]
+]
+print(matrix)
+print(matrix[0][2])
+print('\n')
+
+
+basket = [1, 2, 3, 4, 5]
+new_list = basket.append(100)
+print(basket)
+print(new_list)
+basket.insert(4, 50)
+print(basket)
+basket.extend([10, 20, 30, 40])
+print(basket)
+print('\n')
+
+basket.pop()
+print(basket)
+basket.pop(4)
+print(basket)
+basket.remove(100)
+print(basket)
+# basket.clear()
+# print(basket)
+print('\n')
+
+print(basket.index(5))
+print(5 in basket)
+print(basket.count(4))
+print('\n')
+
+basket.sort()
+print(basket)
+new_basket = basket.copy()
+new_basket.sort(reverse=True)
+print(new_basket)
+print(sorted(new_basket))
+basket.reverse()
+print(basket)
+print('\n')
+
+
+--6.
+
+print(basket[::-1])
+print(range(1, 100))
+print(list(range(101)))
+
+sentence = '! '
+new_sentence = sentence.join(['Hi', 'my', 'name', 'is', 'J'])
+print(new_sentence)
+print('\n')
+
+a, b, c, *other, d = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+print(a)
+print(b)
+print(c)
+print(other)
+print(d)
+
+
+--7.
+
+my_set = {1, 2, 3, 4, 5, 5}
+my_set.add(100)
+my_set.add(2)
+print(my_set)
+my_list = [1, 2, 3, 4, 4, 5, 5]
+print(set(my_list))
+print(list(my_set))
+
+new_set = my_set.copy()
+my_set.clear()
+print(my_set)
+print(new_set)
+print('\n')
+
+my_set = {1, 2, 3, 4, 5}
+your_set = {4, 5, 6, 7, 8, 9, 10}
+
+print(my_set.difference(your_set))
+print(my_set.intersection(your_set))
+print(my_set.isdisjoint(your_set))
+print(my_set.issubset(your_set))
+print(my_set.issuperset(your_set))
+print(my_set.union(your_set))
+my_set.difference_update(your_set)
+print(my_set)
+my_set.discard(5)
+print(my_set)
+
+
+--8.
+
+print(type('Hi Hello there!'))
+username = 'SuperCoder'
+password = "SuperSecret"
+long_string = '''
+WOW
+o_o
+___
+'''
+print(long_string)
+
+print('hello' + ' Nitesh')
+print('hello ' + str(5))
+print("\n")
+
+print(type(int(str(100))))
+
+a = str(100)
+b = int(a)
+c = type(b)
+print(c)
+print("\n")
+
+weather = "\t It\'s \"kind of\" sunny \n Hope you have a good day!"
+print(weather)
+print("\n")
+
+--9.
+
+name = 'Ka'
+age = 27
+print('Hi' + name + '. You are' + str(age) + ' years olf.')
+print(f'Hi {name}. You are {age} years old.')
+
+print('Hi {}. Your are {} years old.'.format(name, age))
+print('Hi {1}. You are {0} years olf.'.format(age, name))
+print('Hi {new_name}. You are {age} years old.'.format(new_name='Sally', age=100))
+print('\n')
+
+selfish = '01234567'
+#          01234567
+print((selfish[0]))
+print((selfish[7]))
+print((selfish[0:2]))
+print((selfish[0:7]))
+print((selfish[0:8]))
+print((selfish[0:8:2]))
+print((selfish[1:5]))
+print((selfish[::1]))
+print((selfish[-1]))
+print((selfish[-2]))
+print((selfish[::-1]))
+print((selfish[::-2]))
+print('\n')
+
+--10.
+
+print(len('Helllooooo'))
+quote = 'to be or not to be'
+print(quote.upper())
+print(quote.capitalize())
+print(quote.find('be'))
+print(quote.replace('be', 'me'))
+print(quote)
+print('\n')
+
+my_tuple = (1, 2, 3, 4, 5)
+print(my_tuple[1])
+print(5 in my_tuple)
+print(my_tuple)
+
+x, y, z, *other = (1, 2, 3, 4, 5)
+print(x)
+print(z)
+
+print(my_tuple.count(5))
+print(my_tuple.index(5))
