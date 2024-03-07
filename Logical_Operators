@@ -1,0 +1,186 @@
+--1.
+
+is_magician = False
+is_expert = True
+if is_magician and is_expert:
+    print("You are a master magician")
+if is_magician and not is_expert:
+    print("At least you\'re getting there.")
+if not is_magician:
+    print("You need magic powers.")
+
+
+
+--2.
+my_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+counter = 0
+for item in my_list:
+    counter += item
+print(counter)
+
+picture = [
+  [0,0,0,1,0,0,0],
+  [0,0,1,1,1,0,0],
+  [0,1,1,1,1,1,0],
+  [1,1,1,1,1,1,1],
+  [0,0,0,1,0,0,0],
+  [0,0,0,1,0,0,0]
+]
+
+
+for image in picture:
+  for pixel in image:
+    if (pixel):
+      print('*', end ="")
+    else:
+      print(' ', end ="")
+  print('')
+
+
+--3.
+
+some_list = ['a', 'b', 'c', 'b', 'd', 'm', 'n', 'n']
+duplicates = []
+
+for value in some_list:
+    if some_list.count(value) > 1:
+        if value not in duplicates:
+            duplicates.append(value)
+
+print(duplicates)
+
+# for i in range(len(some_list)):
+#     for j in range(i+1, len(some_list)):
+#         if some_list[i] == some_list[j]:
+#             duplicates.append(some_list[i])
+#
+# print(duplicates)
+#
+#
+#
+# duplicates = set()
+#
+# list_set = set(some_list)
+#
+# for char in list_set:
+#     count = 0
+#     for item in some_list:
+#         if item == char:
+#             count += 1
+#     if count > 1:
+#         duplicates.add(char)
+#
+# print(duplicates)
+
+
+--4.
+
+def highest_even(li):
+    evens = []
+    for item in li:
+        if not item % 2 and item not in evens:
+            evens.append(item)
+    return max(evens)
+print(highest_even([10, 2, 3, 4, 8, 11]))
+
+
+# *args and **kwargs
+
+
+def super_func(name, *args, i='hi', **kwargs):
+    total = 0
+    for item in kwargs.values():
+        total += item
+    print(i, name)
+    return sum(args) + total
+print(super_func('nitesh', 1, 2, 3, 4, 5, i='hello', num1=5, num2=10))
+# Rule: params, *args, default parameters, **kwargs
+
+
+--5.
+
+my_list = [1, 2, 3]
+i = 0
+while i < len(my_list):
+    print(my_list[i])
+    i += 1
+    continue
+print()
+
+i = 0
+while i < len(my_list):
+    print(my_list[i])
+    i += 1
+    break
+print()
+
+i = 0
+while i < len(my_list):
+    i += 1
+    pass
+
+print("No error")
+
+
+
+def is_odd(num):
+    return num % 2 == 1
+
+
+print(is_odd(5))
+print(is_odd(10))
+
+
+--6.
+
+is_old = True
+is_licenced = True
+
+if is_old:
+    print('You are old enough to drive!')
+elif is_licenced:
+    print('You can drive now!')
+else:
+    print('You are not of age!')
+
+print('ok ok')
+print()
+
+# improved version
+if is_old and is_licenced:
+    print('You are old enough to drive, and you have a licence!')
+else:
+    print('You are not of age!')
+
+print('ok ok')
+
+
+
+--7.
+
+def test(a):
+    """
+    Info : This function tests and prints param a
+    :param a:
+    :return:
+    """
+
+    print(a)
+
+
+test('!!!')
+
+help(test)
+print()
+print(test.__doc__)
+
+for i, char in enumerate('Helllooo'):
+    print(i, char)
+
+for i, char in enumerate([1, 2, 3]):
+    print(i, char)
+
+for i, char in enumerate(range(100)):
+    if char == 50:
+        print(f"index of 50 is: {i}")
