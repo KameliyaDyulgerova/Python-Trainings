@@ -1,0 +1,132 @@
+--1.
+
+class Cat:
+    species = 'mammal'
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+
+
+cat1 = Cat('cat1', 5)
+cat2 = Cat('Cat2', 7)
+cat3 = Cat('Cat3', 3)
+def oldest_cat(*args):
+    return max(args)
+print(f'Oldest Cat is {oldest_cat(cat1.age, cat2.age, cat3.age)} years old.')
+
+
+
+--2.
+
+
+class Pets:
+    animals = []
+    def __init__(self, animals):
+        self.animals = animals
+
+    def walk(self):
+        for animal in self.animals:
+            print(animal.walk())
+
+
+class Cat:
+    is_lazy = True
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def walk(self):
+        return f'{self.name} is just walking around'
+
+
+class Simon(Cat):
+    def sing(self, sounds):
+        return f'{sounds}'
+
+
+class Sally(Cat):
+    def sing(self, sounds):
+        return f'{sounds}'
+
+class Chilli(Cat):
+    def sing(self, sounds):
+        return f'{sounds}'
+
+
+my_cats = [Simon(Simon, 5), Sally(Sally, 7), Chilli(Chilli, 3)]
+my_pets = Pets(my_cats)
+my_pets.walk()
+
+
+
+--3.
+
+class SuperList(list):
+
+    def __len__(self):
+        return 1000
+
+
+super_list1 = SuperList()
+print(len(super_list1))
+super_list1.append(5)
+print(super_list1[0])
+print(issubclass(SuperList, list))
+print(issubclass(list, object))
+
+
+
+
+--4.
+
+my_pets = ['sisi', 'bibi', 'titi', 'mimi']
+
+def capitalize(string):
+    return string.upper()
+
+print(list(map(capitalize, my_pets)))
+
+my_strings = ['a', 'b', 'c', 'd', 'e']
+my_numbers = [5,4,3,2,1]
+
+print(list(zip(my_strings, sorted(my_numbers))))
+
+scores = [73, 20, 65, 19, 76, 100, 88]
+
+def is_smart_student(score):
+    return score > 50
+
+print(list(filter(is_smart_student, scores)))
+
+def accumulator(acc, item):
+    return acc + item
+
+print(reduce(accumulator, (my_numbers + scores)))
+
+
+--5.
+
+my_list = [5, 4, 3]
+print(list(map(lambda item: item*item, my_list)))
+
+
+a = [(0, 2), (4, 3), (9, 9), (10, -2)]
+a.sort(key=lambda x: x[1])
+print(a)
+
+
+some_list = ['a', 'b', 'c', 'b', 'd', 'm', 'n', 'n']
+
+duplicates = []
+for value in some_list:
+    if some_list.count(value) > 1:
+        if value not in duplicates:
+            duplicates.append(value)
+
+print(duplicates)
+
+some_list = ['a', 'b', 'c', 'b', 'd', 'm', 'n', 'n']
+duplicates = list(set([x for x in some_list if some_list.count(x) > 1]))
+print(duplicates)
