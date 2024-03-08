@@ -1,0 +1,302 @@
+--1.
+
+user1 = {
+    'name': 'Sorna',
+    'valid': True #changing this will either run or not run the message_friends function.
+}
+
+def authenticated(fn):
+
+@authenticated
+def message_friends(user):
+    print('message has been sent')
+
+message_friends(user1)
+
+def authenticated(fn):
+    def wrapper(*args, **kwargs):
+        if args[0]["valid"]:
+            return fn(*args, **kwargs)
+        else:
+            return print("invalid user")
+
+    return wrapper
+
+
+@authenticated
+def message_friends(user):
+    print("message has been sent")
+
+
+message_friends(user1)
+
+
+--2.
+
+def fib(number):
+    n1 = 0
+    n2 = 1
+    for i in range(number):
+        yield n1
+        temp = n1
+        n1 = n2
+        n2 = temp + n2
+
+
+for x in fib(10000):
+    print(x)
+
+
+--3.
+
+class PlayerCharacter:
+    membership = True
+    def __init__(self, name, age):
+        if self.membership:     # Or PLayerCharacter.membership
+            self.name = name
+            self.age = age
+
+    def shout(self):
+        print(f'My name is {self.name}')
+
+    def run(self, hello):
+        print(f'{hello} {self.name}')
+
+
+player1 = PlayerCharacter('Cindy', 44)
+player1.shout()
+player1.run('Hi')
+print(player1.membership, '\t', player1.name, '\t', player1.age)
+
+
+--4.
+
+class PlayerCharacter:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    @classmethod
+    def adding_things(cls, num1, num2):
+        return cls('Teddy', num1 + num2)
+
+    @staticmethod
+    def adding_things2(num1, num2):
+        return num1 + num2
+
+
+player3 = PlayerCharacter.adding_things(2, 3)   # Instantiated class using classmethod
+print(player3)
+print(PlayerCharacter.adding_things2(5, 9))
+
+
+--5.
+
+class PlayerCharacter:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def run(self):
+        print('Run')
+
+
+player1 = PlayerCharacter('Ali', 44)
+player2 = PlayerCharacter('Tom', 21)
+player2.attack = 50
+
+print(player1.name)
+print(player2.name)
+print(player1.age)
+print(player2.age)
+player1.run()
+print(player2.attack)
+
+
+--6.
+
+class Toy:
+    def __init__(self, color, age):
+        self.color = color
+        self.age = age
+        self.my_dict= {
+            'name': 'Yoyo',
+            'has_pets': False
+        }
+
+    def __str__(self):
+        return f'{self.color}'
+
+    def __len__(self):
+        return 5
+
+    # def __del__(self):
+    #     print('deleted!')
+
+    def __call__(self):
+        return 'Yess?'
+
+    def __getitem__(self, i):
+        return self.my_dict[i]
+
+    def __abs__(self, num):
+        return num
+
+    def __hex__(self):
+        return 6
+
+    def __set__(self):
+        return 'done setting'
+
+
+action_figure = Toy('red', 0)
+print(action_figure.__str__())
+print(str(action_figure))
+print(len(action_figure))
+# del action_figure
+print(action_figure())
+print(action_figure['name'])
+print(action_figure.__abs__(-50))
+print(action_figure.__hex__())
+print(action_figure.__set__())
+
+
+--7.
+
+class PlayerCharacter:
+    def __init__(self, name, age):
+        if age > 18:
+            self.name = name
+            self.age = age
+
+    def speak(self):
+        print(f'My name is {self.name} and I am {self.age} years old.')
+
+
+player1 = PlayerCharacter('Tom', 20)
+player1.speak()
+
+
+--8.
+
+from time import time
+
+def performance(fn):
+    def wrapper(*args, **kwargs):
+        t1 = time()
+        result = fn(*args, *kwargs)
+        t2 = time()
+        print(f'took {t2-t1} s')
+        return result
+    return wrapper
+
+@performance
+def long_time():
+    print('1')
+    for i in range(1000000): #it finishes after.
+        i*5
+
+long_time()
+print()
+
+@performance
+def long_time2():
+    print('2')
+    for i in list(range(1000000)): #it took longer.
+        i*5
+
+long_time2()
+print()
+
+
+--9.
+
+class User:
+    def sign_in(self):
+        print('logged in')
+
+
+class Wizard(User):
+    def __init__(self, name, power):
+        self.name = name
+        self.power = power
+
+    def attack(self):
+        print(f'Attacking with power of {self.power}')
+
+
+class Archer(User):
+    def __init__(self, name, num_arrows):
+        self.name = name
+        self.num_arrows = num_arrows
+
+    def attack(self):
+        print(f'Attacking with arrows: Arrows left- {self.num_arrows}')
+
+
+wizard1 = Wizard('Merlin', 50)
+archer1 = Archer('Robbin', 100)
+wizard1.attack()
+archer1.attack()
+
+print(isinstance(wizard1, Wizard))
+print(isinstance(wizard1, User))
+print(isinstance(wizard1, object))
+
+
+
+--10.
+
+class PlayerCharacter:
+    # Class Object Attribute
+    membership = True
+
+    def __init__(self, name, age):
+        if age > 18:
+            self.name = name
+            self.age = age
+
+    def shout(self):
+        print(f'My name is {self.name}')
+
+
+player1 = PlayerCharacter('Tom', 20)
+print(player1.shout())
+
+
+--11.
+
+class A:
+    num = 10
+
+class B(A):
+    pass
+
+class C(A):
+    num = 1
+
+class D(B, C):
+    pass
+
+print(D.num)
+print(D.mro())
+
+class X:
+    pass
+
+class Y:
+    pass
+
+class Z:
+    pass
+
+class A(X, Y):
+    pass
+
+class B(Y, Z):
+    pass
+
+class M(B, A, Z):
+    pass
+
+print(M.mro())
