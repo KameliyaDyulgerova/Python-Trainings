@@ -1,0 +1,199 @@
+--1.
+
+class User:
+    def sign_in(self):
+        print('logged in')
+
+class Wizard(User):
+    def __init__(self, name, power):
+        self.name = name
+        self.power = power
+
+    def attack(self):
+        print(f'Attacking with power of {self.power}')
+
+
+class Archer(User):
+    def __init__(self, name, num_arrows):
+        self.name = name
+        self.num_arrows = num_arrows
+
+    def check_arrows(self):
+        print(f'{self.num_arrows} remaining')
+
+    def run(self):
+        print('Ran really fast.')
+
+
+class HybridBorg(Wizard, Archer):
+    def __init__(self, name, power, arrows):
+        Archer.__init__(self, name, arrows)
+        Wizard.__init__(self, name, power)
+
+
+hb1 = HybridBorg('Borgie', 50, 100)
+print(hb1.run())
+print(hb1.check_arrows())
+hb1.attack()
+
+
+--2.
+
+class BigObject:
+    pass
+
+
+obj1 = BigObject()
+obj2 = BigObject()
+obj3 = BigObject()
+
+print(type(None))
+print(type(True))
+print(type(5))
+print(type(5.5))
+print(type('hi'))
+print(type([]))
+print(type(()))
+print(type({}))
+print(type(obj1))
+
+
+--3.
+
+class User:
+    def __init__(self, email):
+        self.email = email
+
+    def sign_in(self):
+        print('logged in')
+
+
+class Wizard(User):
+    def __init__(self, name, power, email):
+        super().__init__(email)
+        # same as:: User.__init__(self, email)
+        self.name = name
+        self.power = power
+
+    def attack(self):
+        print(f'Attacking with power of {self.power}')
+
+
+wizard1 = Wizard('Merlin', 60, 'merlin@gmail.com')
+print(dir(wizard1))
+
+
+--4.
+
+class User:
+    def sign_in(self):
+        print('logged in')
+
+    def attack(self):
+        print('Do nothing.')
+
+
+class Wizard(User):
+    def __init__(self, name, power):
+        self.name = name
+        self.power = power
+
+    def attack(self):
+        print(f'Attacking with power of {self.power}')
+
+
+class Archer(User):
+    def __init__(self, name, num_arrows):
+        self.name = name
+        self.num_arrows = num_arrows
+
+    def attack(self):
+        print(f'Attacking with arrows: Arrows left- {self.num_arrows}')
+
+
+wizard1 = Wizard('Merlin', 50)
+archer1 = Archer('Robbin', 30)
+
+
+def player_attack(char_):
+    char_.attack()
+
+
+player_attack(wizard1)
+player_attack(archer1)
+
+for char in [wizard1, archer1]:
+    char.attack()
+
+
+--5.
+
+class PlayerCharacter:
+    def __init__(self, name, age):
+        if age > 18:
+            self._name = name
+            self._age = age
+
+    def speak(self):
+        print(f'My name is {self._name} and I am {self._age} years old.')
+
+
+player1 = PlayerCharacter('Tom', 20)
+player1.speak()
+
+
+
+def special_for(iterable):
+  iterator = iter(iterable)
+  while True:
+    try:
+      iterator*5
+      next(iterator)
+    except StopIteration:
+      break
+
+
+class MyGen:
+  current = 0
+  def __init__(self, first, last):
+    self.first = first
+    self.last = last
+    MyGen.current = self.first #this line allows us to use the current number as the starting point for the iteration
+
+  def __iter__(self):
+    return self
+
+  def __next__(self):
+    if MyGen.current < self.last:
+      num = MyGen.current
+      MyGen.current += 1
+      return num
+    raise StopIteration
+
+gen = MyGen(1,100)
+for i in gen:
+    print(i)
+
+
+--6.
+
+class User:
+    def __init__(self, email):
+        self.email = email
+
+    def sign_in(self):
+        print('logged in')
+
+class Wizard(User):
+    def __init__(self, name, power, email):
+        super().__init__(email)
+        # same as:: User.__init__(self, email)
+        self.name = name
+        self.power = power
+
+    def attack(self):
+        print(f'Attacking with power of {self.power}')
+
+
+wizard1 = Wizard('Merlin', 60, 'merlin@gmail.com')
+print(wizard1.email)
